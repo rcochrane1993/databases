@@ -1,0 +1,75 @@
+1. 1. string
+   2. integer
+   3. date
+   4. float
+   5. price
+
+2. a database would be used if data needs to be accessed by multiple applications or programs,
+while a text file could be used if tha data set is small enough and only has to be accessed by
+one program at a time.
+
+3. SQL is a declarative rather than a prodedural language, meaning we only need to ask the data bse
+what we want to find as apposed to how we want the database should find the value.
+
+4. Databases contain information that programs and applications need to run. programs then make
+queries to the data base using SQL, the database engine determines the msot efficient way to 
+search for the data and returns the values for the program to run.
+
+5. a table is a collection of columns sperated by rows into individual cells containing some value
+
+6. strings, dates, integers
+
+7. a)What are the dates and amounts of payments
+   DATE             Amount
+   5/1/2016         1500.00
+   5/10/2016        37.00
+   5/15/2016        124.93
+   5/23/2016        54.72
+   
+b) What payments were greater than 500?
+
+AMOUNT
+1500.00
+
+c) what payments were made to "Mega Foods"?
+
+DATE         PAYEE        AMOUNT    MEMO
+5/23/2016 "Megs Foods"    124.93    "groceries"
+
+
+8.
+
+SELECT email, signup
+
+FROM users
+
+WHERE name = "DeAndre Data";
+
+
+output 
+EMAIL                  SIGNUP
+"data@comcast.net     1/20/2008
+
+
+SELECT userid
+
+FROM users
+
+WHERE email = "aleesia.algorithm@uw.edu"
+
+
+output
+USERID
+1
+
+SELECT *
+
+From users
+
+Where userid = 4
+
+
+output
+
+USER ID   NAME              EMAIL              SIGNUP
+4        "Brandy Boolean   bboolean@nasa.gov   10/15/1999
