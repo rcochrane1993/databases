@@ -1,0 +1,110 @@
+1. adding data: INSERT INTO desired-table VALUES (column1value, column2value, column3value);
+   updating data: UPDATE desired-table SET columnname=desiredvalue WHERE column1value=desireditem
+   deleting data: DELETE FROM desired-table WHERE column1value=desireditem;
+
+2. Each command has a desired operation such as UPDATE or DELETE followed by a selection of the target 
+table then instructions on what to execute and WHERE in the database the item exists, usually by id number.
+
+
+3. some data types that can be used in tables include integers(ie:"years of membership"), numeric(ie:"bank balance")
+text(ie:"username"), date(ie: a due date for credit card payment)
+
+4.
+first and last name:text
+whether they sent in their RSVP: text
+number of guests: integer
+number of meals: numeric
+
+CREATE TABLE weddingdinner (
+    name text,
+    rsvp text,
+    guests integer,
+    meals numeric(2,1)
+
+);
+
+ALTER TABLE weddingdinner ADD COLUMN thankyou text SET DEFAULT 'No';
+
+ALTER TABLE wedding dinner DROP COLUMN meals;
+
+ALTER TABLE weddingdinner ADD COLUMN tblnumber integer;
+
+ALTER TABLE wedding dinner DROP COLUMN tblnumber;
+
+
+5. 
+
+CREATE TABLE library (
+   isbn bigint,
+   title text,
+   author text,
+   genre text,
+   publishingdate date,
+   numberofcopies integer,
+   numberavailable integer
+);
+
+INSERT INTO library VALUES (9781470380281, 'Red Rising', 'Pierce Brown', 'science-fiction', 1/28/2014, 10, 7);
+
+INSERT INTO library VALUES (9788445077740, 'The Man in the High Castle', 'Philip K. Dick', 'alternate history', 10/1/1962 );
+
+INSERT INTO library VALUES (9780578021386, 'Sagas of Ragnar Lodbrok', 'Ben Waggoner', 'saga', 4/22/2009, 8, 6 );
+
+
+UPDATE library SET numberavailable=9 WHERE isbn=9781470380281;
+
+DELETE FROM library WHERE isbn=9788445077740;
+
+
+6.
+
+CREATE TABLE spacecrafts (
+   id integer,
+   name text,
+   yearlaunched integer,
+   country text,
+   mission text,
+   orbitingbody text,
+   operating text,
+   distance text
+)
+
+INSERT INTO spacecrafts (1, 'Mars Express', 2003, 'Kazakhstan', 'Study interior and environment of Mars', 'Mars', 'Yes', '54.6 million km');
+
+INSERT INTO spacecrafts (2, 'InSight', 2018, 'USA', 'Probe interior of Mars', 'Mars', 'Yes', '110.9 million km');
+
+INSERT INTO spacecrafts (3, 'Parker Solar PRobe', 2018, 'USA', 'Study heliophysics', 'The Sun', 'Yes', '26.7 million km');
+
+DELETE FROM spacecrafts WHERE id=2;
+
+UPDATE spacecrafts SET operating='No', distance='0 km' WHERE id=3;
+
+
+7.
+
+CREATE TABLE emails (
+
+   id integer,
+   subject text,
+   sender text,
+   additionalrecips text,
+   body text,
+   timestamp timestamp,
+   read text,
+   emailchainid integer,
+)
+
+INSERT INTO emails (234, 'checking in', 'lilmo11602@yahoo.com', 'none', 'hello, just want to see how my son is doing', 2018-10-30T22:00:11, 'yes', 17);
+
+INSERT INTO emails (123, 'dogsitter', 'bestfriend@gmail.com', 'otherfriend@hotmail.com', ' hi can you dogsit for me this weekend?' , 2018-8-16T12:04:35, 'yes', 12);
+
+INSERT INTO emails (213, 'project finished', 'classmate@gmail.com', 'none', 'just letting you know i finished my project', 2017-5-15T15:35:20, 'yes', 10);
+
+DELETE FROM emails WHERE id=213;
+
+UPDATE emails SET read='no' WHERE id=234;
+
+
+   
+   
+   
