@@ -1,0 +1,118 @@
+1.  SELECT title
+    FROM library
+    Where title = 'Red Rising'
+
+2.
+
+3. 
+SELECT name, age, gender
+FROM dogs
+WHERE breed like '%labrador%';
+
+SELECT id
+FROM dogs
+WHERE age < 1;
+
+SELECT name, age
+FROM dogs
+WHERE gender = 'F'
+AND weight > 35;
+
+SELECT *
+FROM dogs 
+WHERE breed NOT LIKE '%Shepherd%';
+
+SELECT id, age, weight, breed
+FROM dogs
+WHERE weight > 60
+OR name LIKE '%Great Danes%';
+
+
+4.
+
+
+NAME         ADOPTION DATE
+'Mushi'     '2016-03-22'
+'Seashell'  NULL
+'Azul'      '2016-04-17'
+'Victoire'  '2016-09-01'
+'Nala'      NULL
+
+
+NAME        AGE
+'Mushi'    1
+'Seashell' 7
+'Azul'     3
+'Victoire' 7
+'Nala'     1
+
+
+5.
+
+SELECT *
+FROM cats;
+
+SELECT name, gender
+FROM cats
+WHERE age = 7
+
+SELECT name
+FROM cats
+
+6.
+> Greater than, used when searching for values greater than a given value
+6 > 4 six is greater than 4
+SELECT name
+FROM cats
+WHERE age > 3
+
+< less than, used when searching for values less than a given value
+7 < 9 seven is less than 9
+SELECT id
+FROM cats
+WHERE id < 4
+
+>= greater than or equal to, used when searching for values greater or equal to a given value
+6 >= 5 six is greater than or equal to 9
+SELECT breed
+FROM cats
+WHERE age >= 2
+
+<= less than or euqal to, used when searching for values less than or euqal to a given value
+4 <= 4 four is less than or equal to 4
+
+SELECT name
+FROM cats
+WHERE id <=3
+
+!=, <> not equal, used when seraching for values not equal to a given value.
+
+5 != 4 , 5 <> 3 five is not equal to 4, and 5 is not equal to 3
+
+SELECT name
+FROM cats
+WHERE name != 'Azul'
+
+=, equal to, used when searching for values equal to the given value.
+5 = 5
+
+SELECT name
+FROM dogs
+WHERE breed = 'Great Dane'
+
+7. 
+name
+'Seashell'
+'Nala'
+
+name
+'Mushi'
+'Seashell'
+'Victoire'
+'Nala'
+
+ID
+3
+4
+
+
