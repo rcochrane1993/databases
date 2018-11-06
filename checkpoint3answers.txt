@@ -11,19 +11,19 @@ text(ie:"username"), date(ie: a due date for credit card payment)
 
 4.
 first and last name:text
-whether they sent in their RSVP: text
+whether they sent in their RSVP: boolean
 number of guests: integer
 number of meals: numeric
 
 CREATE TABLE weddingdinner (
     name text,
-    rsvp text,
+    rsvp boolean,
     guests integer,
     meals numeric(2,1)
 
 );
 
-ALTER TABLE weddingdinner ADD COLUMN thankyou text SET DEFAULT 'No';
+ALTER TABLE weddingdinner ADD COLUMN thankyou boolean SET DEFAULT false;
 
 ALTER TABLE wedding dinner DROP COLUMN meals;
 
@@ -65,15 +65,15 @@ CREATE TABLE spacecrafts (
    country text,
    mission text,
    orbitingbody text,
-   operating text,
-   distance text
+   operating boolean,
+   distance integer
 )
 
-INSERT INTO spacecrafts (1, 'Mars Express', 2003, 'Kazakhstan', 'Study interior and environment of Mars', 'Mars', 'Yes', '54.6 million km');
+INSERT INTO spacecrafts (1, 'Mars Express', 2003, 'Kazakhstan', 'Study interior and environment of Mars', 'Mars', true, 54600000);
 
-INSERT INTO spacecrafts (2, 'InSight', 2018, 'USA', 'Probe interior of Mars', 'Mars', 'Yes', '110.9 million km');
+INSERT INTO spacecrafts (2, 'InSight', 2018, 'USA', 'Probe interior of Mars', 'Mars', true, 110900000);
 
-INSERT INTO spacecrafts (3, 'Parker Solar PRobe', 2018, 'USA', 'Study heliophysics', 'The Sun', 'Yes', '26.7 million km');
+INSERT INTO spacecrafts (3, 'Parker Solar PRobe', 2018, 'USA', 'Study heliophysics', 'The Sun', true, 26700000);
 
 DELETE FROM spacecrafts WHERE id=2;
 
@@ -90,15 +90,15 @@ CREATE TABLE emails (
    additionalrecips text,
    body text,
    timestamp timestamp,
-   read text,
+   read boolean,
    emailchainid integer,
 )
 
-INSERT INTO emails (234, 'checking in', 'lilmo11602@yahoo.com', 'none', 'hello, just want to see how my son is doing', 2018-10-30T22:00:11, 'yes', 17);
+INSERT INTO emails (234, 'checking in', 'lilmo11602@yahoo.com', 'none', 'hello, just want to see how my son is doing', 2018-10-30T22:00:11, true, 17);
 
-INSERT INTO emails (123, 'dogsitter', 'bestfriend@gmail.com', 'otherfriend@hotmail.com', ' hi can you dogsit for me this weekend?' , 2018-8-16T12:04:35, 'yes', 12);
+INSERT INTO emails (123, 'dogsitter', 'bestfriend@gmail.com', 'otherfriend@hotmail.com', ' hi can you dogsit for me this weekend?' , 2018-8-16T12:04:35, true, 12);
 
-INSERT INTO emails (213, 'project finished', 'classmate@gmail.com', 'none', 'just letting you know i finished my project', 2017-5-15T15:35:20, 'yes', 10);
+INSERT INTO emails (213, 'project finished', 'classmate@gmail.com', 'none', 'just letting you know i finished my project', 2017-5-15T15:35:20, true, 10);
 
 DELETE FROM emails WHERE id=213;
 
