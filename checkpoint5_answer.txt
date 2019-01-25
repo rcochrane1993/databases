@@ -1,0 +1,83 @@
+1. to find related data held in two sepreate fields you would use a JOIN statement
+
+2. INNER JOIN(default) where two tables are combined resulting in a row in the results table for each row
+the selected tables have in common. LEFT OUTER JOIN results in the rsults table having every row from table one and only
+the corresponding rows from table 2. RIGHT OUTER JOIN is the opposite of LEFT OUT JOIN which produces a row in the results
+table for every row in table 2 and only the common rows from table 1.
+
+3.a primary key is a unique identifier for each row in a table(ex:student ID number in a roster of students), a foreign key is a primary key from another
+table that is used as a non-unique attribute in another table(ex: in the same roster of students the ID of the department of their selected major, would be
+a foreign key)
+
+4. Aliasing is when you create a shorter variable name to replace a table name in a query, usually a single letter.
+
+
+5. 
+SELECT p.name, c.salary,
+c.vacation_days FROM p JOIN
+c ON p.id =
+c.professor_id;
+
+6. You would use a natural join when you want display all the shared columns between two tables
+ex:if you had two tables one containing all the students names and contact info, and
+another containing the names and addresses of all student atheletes in the school. You could use natural join
+to display all of the names and addresses of student atheletes.
+
+7.
+
+SELECT employees.name, shifts.date, shifts.start_time, shifts.end_time 
+ FROM scheduled_shifts
+ JOIN employees ON employee_id = employees.id
+ JOIN shifts ON shift_id = shifts.id;
+
+8.
+a)
+SELECT volunteers.first_name, volunteers.Last_name, dogs.name
+FROM volunteers
+LEFT OUTER JOIN dogs ON dogs.id = volunteers.foster_dog_id;
+b)
+SELECT cats.name, adopters.first_name, adopters.last_name, cat_adoptions.date
+FROM cats  
+JOIN cat_adoptions ON cats.id = cat_adoptions.cat_id
+JOIN adopters ON cat_adoptions.adopter_id = adopters.id
+WHERE cat_adoptions.date > CURRENT_DATE - INTERVAL '30 DAYS';
+c)
+SELECT adopters.first_name, adopters.last_name 
+FROM adopters
+LEFT OUTER JOIN dog_adoptions ON dog_adoptions.adopter_id = adopters.id
+WHERE dog_adoptions.dog_id IS null;
+d)
+SELECT dogs.name
+FROM dogs
+LEFT OUTER JOIN dog_adoptions ON dog_adoptions.dog_id = dogs.id
+WHERE dog_adoptions.adopter_id IS null
+UNION
+SELECT cats.name
+FROM cats
+LEFT OUTER JOIN cat_adoptions ON cat_adoptions.cat_id = cats.id
+Where cat_adoptions.adopter_id IS null;
+e)
+SELECT adopters.first_name, adopters.last_name
+FROM adopters
+LEFT OUTER JOIN dog_adoptions ON dog_adoptions.adopter_id = adopters.id
+LEFT OUTER JOIN dogs ON dogs.id = dog_adoptions.dog_id
+WHERE dogs.name = 'Rosco';
+
+9.
+
+a)
+SELECT patrons.name, holds.rank
+FROM patrons
+LEFT OUTER JOIN holds ON holds.patron_id = patrons.id
+LEFT OUTER JOIN books ON books.isbn = holds.isbn
+WHERE books.title = 'Advanced Potion-Making'
+ORDER BY holds.rank ASC;
+
+b)
+SELECT patrons.name, books.title
+FROM transactions
+JOIN books ON (books.isbn = transactions.isbn AND transactions.checked_in_date IS NULL)
+RIGHT OUTER JOIN patrons ON transactions.patron_id = patrons.id
+GROUP BY patrons.name, books.title;
+
+   
